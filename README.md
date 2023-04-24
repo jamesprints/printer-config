@@ -46,6 +46,3 @@ below the mainsail updater section.
 ```ini
 [include printer/<printer-name>.cfg]
 ```
-    M84
-{% endif %}
-```
