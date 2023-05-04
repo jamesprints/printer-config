@@ -35,12 +35,12 @@ EOT
 fi
 
 # Setup led_effect
-if [ ! -d "~/klipper-led_effect" ]; then
-    git clone https://github.com/julianschill/klipper-led_effect.git ~/klipper-led_effect
-    pushd ~/klipper-led_effect
-    ./install-led_effect.sh
-    popd
+DIR=~/klipper-led_effect
+if [ ! -d "$DIR" ]; then
+    git clone https://github.com/julianschill/klipper-led_effect.git $DIR
+    (cd $DIR && ./install-led_effect.sh)
 fi
+
 
 # Setup Printer Config
 printerConfigDir=~/printer-config
