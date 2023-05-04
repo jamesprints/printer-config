@@ -34,6 +34,14 @@ primary_branch: main
 EOT
 fi
 
+# Setup led_effect
+if [ ! -d "~/klipper-led_effect" ]; then
+    git clone https://github.com/julianschill/klipper-led_effect.git ~/klipper-led_effect
+    pushd ~/klipper-led_effect
+    ./install-led_effect.sh
+    popd
+fi
+
 # Setup Printer Config
 printerConfigDir=~/printer-config
 if [ ! -d "$printerConfigDir" ]; then
