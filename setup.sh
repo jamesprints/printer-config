@@ -16,8 +16,8 @@ function git_clone_if_not_exists() {
 klipperAdaptiveMeshingPurgingDir=~/Klipper-Adaptive-Meshing-Purging
 if [ ! -d "$klipperAdaptiveMeshingPurgingDir" ]; then
     git clone https://github.com/kyleisah/Klipper-Adaptive-Meshing-Purging.git "$klipperAdaptiveMeshingPurgingDir"
-    create_link_if_not_exists "$klipperAdaptiveMeshingPurgingDir"/Configuration ~/printer_data/config/KAMP
 fi
+create_link_if_not_exists "$klipperAdaptiveMeshingPurgingDir"/Configuration ~/printer_data/config/KAMP
 
 moonrakerConf=~/printer_data/config/moonraker.conf
 if ! grep -q "update_manager Klipper-Adaptive-Meshing-Purging" "$moonrakerConf"; then
@@ -38,9 +38,9 @@ fi
 printerConfigDir=~/printer-config
 if [ ! -d "$printerConfigDir" ]; then
     git clone https://github.com/jamesprints/printer-config.git "$printerConfigDir"
-    create_link_if_not_exists ~/printer_data/config/printer "$printerConfigDir"
-    create_link_if_not_exists ~/printer_data/config/printer-config-moonraker-update.conf "$printerConfigDir"/printer-config-moonraker-update.conf
 fi
+create_link_if_not_exists ~/printer_data/config/printer "$printerConfigDir"
+create_link_if_not_exists ~/printer_data/config/printer-config-moonraker-update.conf "$printerConfigDir"/printer-config-moonraker-update.conf
 
 if ! grep -q "include printer-config-moonraker-update" "$moonrakerConf"; then
     echo "[include printer-config-moonraker-update.conf]" >> "$moonrakerConf"
